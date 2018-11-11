@@ -260,6 +260,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Calculator.aspx" />
+    <Content Include="Views\Comentario.aspx" />
     <Content Include="Views\Contador.aspx" />
     <Content Include="Views\Noticias.aspx" />
     <Content Include="Views\Repeater.aspx" />
@@ -297,10 +298,13 @@
     </Compile>
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\CnnContext.cs" />
+    <Compile Include="Models\ComentarioContext.cs" />
+    <Compile Include="Models\Contenido.cs" />
     <Compile Include="Models\Noticia.cs" />
     <Compile Include="Models\Numbers.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ComentarioService.cs" />
     <Compile Include="Services\StudentTextService.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -329,6 +333,13 @@
     </Compile>
     <Compile Include="Views\Calculator.aspx.designer.cs">
       <DependentUpon>Calculator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Comentario.aspx.cs">
+      <DependentUpon>Comentario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Comentario.aspx.designer.cs">
+      <DependentUpon>Comentario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Contador.aspx.cs">
       <DependentUpon>Contador.aspx</DependentUpon>

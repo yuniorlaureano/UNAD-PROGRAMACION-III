@@ -74,6 +74,7 @@
                           <li><a runat="server" href="~/Views/Calculator">Calculadora</a></li>
                            <li><a runat="server" href="~/Views/Repeater">Repetidor</a></li>
                             <li><a runat="server" href="~/Views/StudentForms">Curriculumn</a></li>
+                            <li><a runat="server" href="~/Views/Comentario">Comentario</a></li>
                         </ul>
                       </li>
                     </ul>
