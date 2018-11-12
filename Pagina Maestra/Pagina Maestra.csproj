@@ -264,6 +264,7 @@
     <Content Include="Views\Contador.aspx" />
     <Content Include="Views\Noticias.aspx" />
     <Content Include="Views\Repeater.aspx" />
+    <Content Include="Views\Curriculum.aspx" />
     <Content Include="Views\StudentForms.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -297,11 +298,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Calculator.cs" />
+    <Compile Include="Models\CurriculumnContext.cs" />
     <Compile Include="Models\CnnContext.cs" />
     <Compile Include="Models\ComentarioContext.cs" />
     <Compile Include="Models\Contenido.cs" />
     <Compile Include="Models\Noticia.cs" />
     <Compile Include="Models\Numbers.cs" />
+    <Compile Include="Models\Cv.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ComentarioService.cs" />
@@ -361,6 +364,13 @@
     </Compile>
     <Compile Include="Views\Repeater.aspx.designer.cs">
       <DependentUpon>Repeater.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Curriculum.aspx.cs">
+      <DependentUpon>Curriculum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Curriculum.aspx.designer.cs">
+      <DependentUpon>Curriculum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentForms.aspx.cs">
       <DependentUpon>StudentForms.aspx</DependentUpon>
