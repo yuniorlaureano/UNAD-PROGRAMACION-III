@@ -20,13 +20,30 @@ namespace Pagina_Maestra.Views
                 tblStudents.DataSource = students;
                 tblStudents.DataBind();
             }
+
+            var id = Request.QueryString["id"];
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                var cv = context.Cvs.FirstOrDefault(c => c.Id == new Guid(id));
+                if (cv != null)
+                {
+                    context.Cvs.Remove(cv);
+                    context.SaveChanges();
+                }
+                Response.Redirect("Curriculum");
+            }
         }
         
         protected void btnGuardarClick(object sender, EventArgs e)
         {
-            if (!checkTerminos.Checked)
+            var id = hiddenId.Value;
+
+            if (string.IsNullOrWhiteSpace(id))
             {
-                return;
+                if (!checkTerminos.Checked)
+                {
+                    return;
+                }
             }
 
             if (ValidateError())
@@ -34,16 +51,36 @@ namespace Pagina_Maestra.Views
                 return;
             }
 
-            context.Cvs.Add(new Cv
+            
+
+            if (string.IsNullOrWhiteSpace(id))
             {
-                Name = textNombre.Value,
-                Apellido = textApellido.Value,
-                Direccion = textDireccion.Value,
-                Carrera = textCarrera.Value,
-                Cedula = textCedula.Value,
-                ExperienciaLaboral = textExperienciaLaboral.Value,
-                Sexo = textSexo.Value
-            });
+                context.Cvs.Add(new Cv
+                {
+                    Name = textNombre.Value,
+                    Apellido = textApellido.Value,
+                    Direccion = textDireccion.Value,
+                    Carrera = textCarrera.Value,
+                    Cedula = textCedula.Value,
+                    ExperienciaLaboral = textExperienciaLaboral.Value,
+                    Sexo = textSexo.Value
+                });
+            }
+            else
+            {
+                var cv = context.Cvs.FirstOrDefault(c => c.Id == new Guid(id));
+                if (cv != null)
+                {
+                    cv.Name = textNombre.Value;
+                    cv.Apellido = textApellido.Value;
+                    cv.Direccion = textDireccion.Value;
+                    cv.Carrera = textCarrera.Value;
+                    cv.Cedula = textCedula.Value;
+                    cv.ExperienciaLaboral = textExperienciaLaboral.Value;
+                    cv.Sexo = textSexo.Value;
+                }
+            }
+
 
             context.SaveChanges();
             tblStudents.DataSource = context.Cvs.ToList();
@@ -53,6 +90,7 @@ namespace Pagina_Maestra.Views
 
         private void clearField()
         {
+            hiddenId.Value = "";
             textNombre.Value = "";
             textApellido.Value = "";
             textDireccion.Value = "";

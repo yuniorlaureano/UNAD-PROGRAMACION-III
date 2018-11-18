@@ -85,6 +85,15 @@ namespace Pagina_Maestra.Views {
         protected global::System.Web.UI.HtmlControls.HtmlInputText textSearch;
         
         /// <summary>
+        /// Control hiddenId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenId;
+        
+        /// <summary>
         /// Control textNombre.
         /// </summary>
         /// <remarks>

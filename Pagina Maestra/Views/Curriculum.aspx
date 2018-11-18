@@ -21,6 +21,7 @@
                             </div>
                         </div>
                     <div class="form-group">
+                        <asp:HiddenField runat="server" ID="hiddenId" />
                         <label class="col-sm-2 control-label">Nombre</label>
                         <div class="col-sm-10">
                             <input type="text" runat="server" id="textNombre" class="form-control" />
@@ -91,7 +92,7 @@
                     </tr>
                     <asp:Repeater runat="server" ID="tblStudents">
                         <ItemTemplate>
-                            <tr>
+                            <tr data-id="<%#DataBinder.Eval(Container.DataItem, "Id") %>">
                                 <td><%#DataBinder.Eval(Container.DataItem, "Name") %></td>
                                 <td><%#DataBinder.Eval(Container.DataItem, "Apellido") %></td>
                                 <td><%#DataBinder.Eval(Container.DataItem, "Direccion") %></td>
@@ -114,8 +115,22 @@
     </div>
     <script type="text/javascript">
         $(function () {
-            $("").on("click", ".btn_actualizar", function () {
-                $("#MainContent_textNombre").val();
+            $(document).on("click", ".btn_actualizar", function () {
+
+                var tr = $(this).parents("tr");
+                var tds = tr.find("td");
+
+                $("#MainContent_hiddenId").val(tr.attr("data-id"));
+                $("#MainContent_textNombre").val($(tds[0]).text());
+                $("#MainContent_textApellido").val($(tds[1]).text());
+                $("#MainContent_textDireccion").val($(tds[2]).text());
+                $("#MainContent_textSexo").val($(tds[3]).text());
+                $("#MainContent_textCedula").val($(tds[4]).text());
+                $("#MainContent_textExperienciaLaboral").val($(tds[5]).text());
+                $("#MainContent_textCarrera").val($(tds[6]).text());
+
+                $("#MainContent_checkTerminos").prop("checked", true).prop("disabled", true);
+
             });
 
         });
